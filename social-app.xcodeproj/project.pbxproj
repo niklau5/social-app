@@ -36,6 +36,7 @@
 		09B7A36E1E75A79E009E8BEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		09B7A3701E75A79E009E8BEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09B7A3761E75A86D009E8BEA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		09EF4CDE1E782CF400C144D4 /* social-app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "social-app.entitlements"; sourceTree = "<group>"; };
 		1A39FE6FCE8F5088322E9919 /* Pods-social-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-social-app.release.xcconfig"; path = "Pods/Target Support Files/Pods-social-app/Pods-social-app.release.xcconfig"; sourceTree = "<group>"; };
 		3F3951E239ABE5215330ECF2 /* Pods_social_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_social_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -107,6 +108,7 @@
 		09B7A3631E75A79E009E8BEA /* social-app */ = {
 			isa = PBXGroup;
 			children = (
+				09EF4CDE1E782CF400C144D4 /* social-app.entitlements */,
 				09A9C5AE1E7812D70072DEAC /* Uitil */,
 				0982D6FA1E75AACB00A0A455 /* Model */,
 				0982D6FB1E75AAD000A0A455 /* View */,
@@ -175,6 +177,11 @@
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = 93L72G83S5;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -395,6 +402,7 @@
 			baseConfigurationReference = 03B1BB251C23EB303B96208D /* Pods-social-app.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "social-app/social-app.entitlements";
 				DEVELOPMENT_TEAM = 93L72G83S5;
 				INFOPLIST_FILE = "social-app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
@@ -410,6 +418,7 @@
 			baseConfigurationReference = 1A39FE6FCE8F5088322E9919 /* Pods-social-app.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "social-app/social-app.entitlements";
 				DEVELOPMENT_TEAM = 93L72G83S5;
 				INFOPLIST_FILE = "social-app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
