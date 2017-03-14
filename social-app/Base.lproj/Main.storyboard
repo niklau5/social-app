@@ -89,7 +89,7 @@
                                         <rect key="frame" x="0.0" y="36" width="283" height="21"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.87" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBa-as-fGI" customClass="FancyBtn" customModule="social_app" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="283" height="33"/>
@@ -98,6 +98,9 @@
                                         <state key="normal" title="Sign in">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="signInTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="f4G-h8-JxK"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -121,6 +124,10 @@
                             <constraint firstItem="FYy-Br-4hw" firstAttribute="top" secondItem="vB2-rU-zi0" secondAttribute="bottom" constant="40" id="pQr-IY-CaI"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailField" destination="V1Q-1I-X39" id="bCo-R3-9U2"/>
+                        <outlet property="passwordField" destination="EkM-Pl-bGB" id="frU-4R-jcZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
