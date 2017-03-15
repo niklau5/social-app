@@ -32,7 +32,7 @@ class DataService {
         return _REF_BASE
     }
     
-    var REF_POST: FIRDatabaseReference {
+    var REF_POSTS: FIRDatabaseReference {
         return _REF_POSTS
     }
     

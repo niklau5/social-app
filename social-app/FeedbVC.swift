@@ -33,7 +33,7 @@ class FeedbVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UII
         imagePicker.allowsEditing = true
         imagePicker.delegate = self
         
-        DataService.ds.REF_POST.observe(.value, with: { (snapshot) in
+        DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in
             if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 for snap in snapshot {
                     print("Snap: \(snap)")
@@ -107,15 +107,35 @@ class FeedbVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UII
             
             DataService.ds.REF_POST_IMAGES.child(imgUid).put(imgData, metadata: metadata) { (metadata, error) in
                 if error != nil {
-                    print("Nikolai: Error with image \(error)")
+                    print("Nikolai: Error with image \(error!)")
                 } else {
                     print("Nikolai: image uploaded with success")
                     let downloadURL = metadata?.downloadURL()?.absoluteString
+                    if let url = downloadURL {
+                       self.postToFirebase(imgURl: url)
+                    }
                 }
             }
         }
         
         
+    }
+    
+    func postToFirebase(imgURl: String) {
+        
+        let post: Dictionary<String, Any> = [
+            "caption": captionField.text!,
+            "imageUrl": imgURl,
+            "likes": 0
+        ]
+        
+        let firebasePost = DataService.ds.REF_POSTS.childByAutoId()
+        firebasePost.setValue(post)
+        
+        captionField.text = ""
+        imageSelected = false
+        imageAdd.image = UIImage(named: "add-image")
+        tableView.reloadData()
     }
 
     @IBAction func addImageTapped(_ sender: Any) {
