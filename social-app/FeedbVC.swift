@@ -17,7 +17,6 @@ class FeedbVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UII
     @IBOutlet weak var captionField: FancyField!
     
     
-    
     var posts = [Post]()
     var imagePicker: UIImagePickerController!
     static var imageCache: NSCache<NSString, UIImage> = NSCache()
@@ -68,12 +67,10 @@ class FeedbVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UII
             
             if let img = FeedbVC.imageCache.object(forKey: post.imageUrl as NSString) {
                 cell.configureCell(post: post, img: img)
-                return cell
             } else {
                 cell.configureCell(post: post)
-                return cell
             }
-            
+            return cell
         } else {
             return PostCell()
         }
